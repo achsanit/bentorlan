@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/navigation_home"
+        android:title="Home"
+        android:icon="@drawable/Vectorhome"/>
+    <item android:id="@+id/navigation_darurat"
+        android:title="Darurat"
+        android:icon="@drawable/VectorDarurat"/>
+    <item android:id="@+id/navigation_perbaikan"
+        android:title="Perbaikan"
+        android:icon="@drawable/Vectorperbaikan"/>
+    <item android:id="@+id/navigation_sukucadang"
+        android:title="Suku Cadang"
+        android:icon="@drawable/Vectorsukucadang"/>
+    <item android:id="@+id/navigation_profile"
+        android:title="Profile"
+        android:icon="@drawable/Vectorhome"/>
+</menu>

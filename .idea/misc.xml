@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Binar/bengkolan/app/src/main/res/layout/activity_main.xml" value="0.2328125" />
+        <entry key="..\:/Binar/bengkolan/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Binar/bengkolan/app/src/main/res/layout/fragment_login.xml" value="0.2" />
-        <entry key="..\:/Binar/bengkolan/app/src/main/res/layout/fragment_register.xml" value="0.1" />
+        <entry key="..\:/Binar/bengkolan/app/src/main/res/layout/fragment_register.xml" value="0.2" />
+        <entry key="..\:/Binar/bengkolan/app/src/main/res/menu/bottom_nav_menu.xml" value="0.23229166666666667" />
       </map>
     </option>
   </component>
