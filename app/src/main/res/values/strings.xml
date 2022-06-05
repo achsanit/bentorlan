@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">bengkolan</string>
+    <string name="app_name">Debug Movie</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="titlevr">Watch movies in Virtual Reality</string>
+    <string name="belum_punya_akun"><font color='#FFFFFF'>Belum punya akun? Klik disini untuk </font><font color='#1CE5FF'>Daftar</font></string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="konfirmasi_password">Konfirmasi Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_have_an_account">Already have an account</string>
+    <string name="sign_in">Sign In</string>
+    <string name="remember_me">Remember me</string>
+    <string name="movie_title">Movie Title</string>
+    <string name="genre">Genre</string>
+    <string name="overview">Overview</string>
+    <string name="todo">TODO</string>
 </resources>
