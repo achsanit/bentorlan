@@ -120,8 +120,8 @@ class LoginFragment : Fragment() {
     private fun checkUser(){
         //if user telah login akan ke main activity
         val firebaseUser = firebaseAuth.currentUser
-        if (firebaseUser != null){
-            startActivity(Intent(activity, MainActivity::class.java))
-        }
+//        if (firebaseUser != null){
+//            startActivity(Intent(activity, MainActivity::class.java))
+//        }
     }
 }

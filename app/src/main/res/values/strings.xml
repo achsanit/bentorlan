@@ -2,13 +2,13 @@
     <string name="app_name">Debug Movie</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="titlevr">Silahkan Masuk</string>
-    <string name="belum_punya_akun"><font color='#4CAF50'>Belum punya akun? Klik disini untuk </font><font color='#000'>Daftar</font></string>
+    <string name="titlevr">Login To Your Account</string>
+    <string name="belum_punya_akun"><font color='#4CAF50'>Belum punya akun? Klik disini untuk </font><font color='#926E00'>Daftar</font></string>
     <string name="username">Username</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="konfirmasi_password">Konfirmasi Password</string>
-    <string name="sign_up">Sign Up</string>
+    <string name="sign_up">Register</string>
     <string name="already_have_an_account">Already have an account</string>
     <string name="sign_in">Sign In</string>
     <string name="remember_me">Remember me</string>
@@ -16,4 +16,5 @@
     <string name="genre">Genre</string>
     <string name="overview">Overview</string>
     <string name="todo">TODO</string>
+    <string name="forget_password">Forget Password ?</string>
 </resources>

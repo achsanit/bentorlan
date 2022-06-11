@@ -11,21 +11,22 @@
     <ImageView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/daftar"
+    android:background="@drawable/regis"
     tools:ignore="MissingConstraints"
     android:contentDescription="@string/todo" />
+
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="@string/sign_up"
-        android:textColor="@color/Daun"
-        android:textSize="32sp"
         android:layout_marginTop="64dp"
+        android:text="@string/sign_up"
+        android:textColor="@color/Ijo"
+        android:textSize="32sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -146,7 +147,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:text="@string/sign_in"
-        android:textColor="@color/black"
+        android:textColor="@color/tanah"
         app:layout_constraintStart_toEndOf="@id/tv_dont_have_account"
         app:layout_constraintTop_toTopOf="@id/tv_dont_have_account" />
 
