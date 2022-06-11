@@ -5,85 +5,85 @@
     android:id="@+id/nav_login_page"
     app:startDestination="@id/loginFragment">
     <fragment
-        android:id="@+id/registerFragment"
-        android:name="com.rayxxv.letswatch.fragment.RegisterFragment"
+        android:id="@+id/RegisterFragment"
+        android:name="com.example.bengkolan.ui.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
-            android:id="@+id/action_registerFragment_to_loginFragment"
+            android:id="@+id/action_RegisterFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.rayxxv.letswatch.fragment.LoginFragment"
+        android:name="com.example.bengkolan.ui.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login" />
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/menuFragment"
-        android:name="com.rayxxv.letswatch.fragment.MenuFragment"
-        android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" >
-        <action
-            android:id="@+id/action_menuFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
-        <action
-            android:id="@+id/action_menuFragment_to_detailSeriesFragment"
-            app:destination="@id/detailSeriesFragment" />
-        <action
-            android:id="@+id/action_menuFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-        <action
-            android:id="@+id/action_menuFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/detailFragment"
-        android:name="com.rayxxv.letswatch.fragment.DetailMovieFragment"
-        android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail_movie" >
-        <action
-            android:id="@+id/action_detailFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
-        <argument
-            android:name="movieId"
-            app:argType="integer"
-            android:defaultValue="0" />
-    </fragment>
-    <fragment
-        android:id="@+id/detailSeriesFragment"
-        android:name="com.rayxxv.letswatch.fragment.DetailSeriesFragment"
-        android:label="fragment_detail_series"
-        tools:layout="@layout/fragment_detail_series" >
-        <action
-            android:id="@+id/action_detailSeriesFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
-        <argument
-            android:name="seriesId"
-            app:argType="integer"
-            android:defaultValue="-1" />
-    </fragment>
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.rayxxv.letswatch.fragment.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
-        <action
-            android:id="@+id/action_profileFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-        <action
-            android:id="@+id/action_profileFragment_to_menuFragment2"
-            app:destination="@id/menuFragment" />
-        <argument
-            android:name="user"
-            app:argType="com.rayxxv.letswatch.room.User"
-            app:nullable="true"
-            android:defaultValue="@null" />
-    </fragment>
+            app:destination="@id/RegisterFragment" />
+<!--        <action-->
+<!--            android:id="@+id/action_loginFragment_to_menuFragment"-->
+<!--            app:destination="@id/menuFragment" />-->
+<!--    </fragment>-->
+<!--    <fragment-->
+<!--        android:id="@+id/menuFragment"-->
+<!--        android:name="com.rayxxv.letswatch.fragment.MenuFragment"-->
+<!--        android:label="fragment_menu"-->
+<!--        tools:layout="@layout/fragment_menu" >-->
+<!--        <action-->
+<!--            android:id="@+id/action_menuFragment_to_detailFragment"-->
+<!--            app:destination="@id/detailFragment" />-->
+<!--        <action-->
+<!--            android:id="@+id/action_menuFragment_to_detailSeriesFragment"-->
+<!--            app:destination="@id/detailSeriesFragment" />-->
+<!--        <action-->
+<!--            android:id="@+id/action_menuFragment_to_profileFragment"-->
+<!--            app:destination="@id/profileFragment" />-->
+<!--        <action-->
+<!--            android:id="@+id/action_menuFragment_to_loginFragment"-->
+<!--            app:destination="@id/loginFragment" />-->
+<!--    </fragment>-->
+<!--    <fragment-->
+<!--        android:id="@+id/detailFragment"-->
+<!--        android:name="com.rayxxv.letswatch.fragment.DetailMovieFragment"-->
+<!--        android:label="fragment_detail"-->
+<!--        tools:layout="@layout/fragment_detail_movie" >-->
+<!--        <action-->
+<!--            android:id="@+id/action_detailFragment_to_menuFragment"-->
+<!--            app:destination="@id/menuFragment" />-->
+<!--        <argument-->
+<!--            android:name="movieId"-->
+<!--            app:argType="integer"-->
+<!--            android:defaultValue="0" />-->
+<!--    </fragment>-->
+<!--    <fragment-->
+<!--        android:id="@+id/detailSeriesFragment"-->
+<!--        android:name="com.rayxxv.letswatch.fragment.DetailSeriesFragment"-->
+<!--        android:label="fragment_detail_series"-->
+<!--        tools:layout="@layout/fragment_detail_series" >-->
+<!--        <action-->
+<!--            android:id="@+id/action_detailSeriesFragment_to_menuFragment"-->
+<!--            app:destination="@id/menuFragment" />-->
+<!--        <argument-->
+<!--            android:name="seriesId"-->
+<!--            app:argType="integer"-->
+<!--            android:defaultValue="-1" />-->
+<!--    </fragment>-->
+<!--    <fragment-->
+<!--        android:id="@+id/profileFragment"-->
+<!--        android:name="com.rayxxv.letswatch.fragment.ProfileFragment"-->
+<!--        android:label="fragment_profile"-->
+<!--        tools:layout="@layout/fragment_profile" >-->
+<!--        <action-->
+<!--            android:id="@+id/action_profileFragment_to_loginFragment"-->
+<!--            app:destination="@id/loginFragment" />-->
+<!--        <action-->
+<!--            android:id="@+id/action_profileFragment_to_menuFragment2"-->
+<!--            app:destination="@id/menuFragment" />-->
+<!--        <argument-->
+<!--            android:name="user"-->
+<!--            app:argType="com.rayxxv.letswatch.room.User"-->
+<!--            app:nullable="true"-->
+<!--            android:defaultValue="@null" />-->
+<!--    </fragment>-->
 </navigation>

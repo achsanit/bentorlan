@@ -32,6 +32,12 @@ class RegisterFragment : Fragment() {
             : View {
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return binding.root
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         firebaseAuth = FirebaseAuth.getInstance()
         binding.btnDaftar.setOnClickListener {
             //validate data
@@ -74,7 +80,7 @@ class RegisterFragment : Fragment() {
     private fun firebaseSignUp() {
         firebaseAuth.createUserWithEmailAndPassword(email, password)
             .addOnSuccessListener {
-                findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+                findNavController().navigate(R.id.action_RegisterFragment_to_loginFragment)
             }
             .addOnFailureListener {
                 Toast.makeText(activity, "Sign Up Failed", Toast.LENGTH_SHORT).show()

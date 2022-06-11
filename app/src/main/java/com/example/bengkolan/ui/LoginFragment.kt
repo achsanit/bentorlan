@@ -111,7 +111,6 @@ class LoginFragment : Fragment() {
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener {
                 startActivity(Intent(activity, MainActivity::class.java))
-
             }
             .addOnFailureListener {
                 Toast.makeText(activity, "Login Failed", Toast.LENGTH_SHORT).show()
