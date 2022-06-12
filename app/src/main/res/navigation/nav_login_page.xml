@@ -17,11 +17,42 @@
         android:id="@+id/loginFragment"
         android:name="com.example.bengkolan.ui.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment3"
+            app:destination="@id/homeFragment3" />
+    </fragment>
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/RegisterFragment" />
-<!--        <action-->
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.example.bengkolan.ui.UserProfileFragment"
+        android:label="fragment_user_profile"
+        tools:layout="@layout/fragment_user_profile" />
+    <fragment
+        android:id="@+id/homeFragment3"
+        android:name="com.example.bengkolan.ui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment3_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
+        <action
+            android:id="@+id/action_homeFragment3_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/daruratFragment"
+        android:name="com.example.bengkolan.ui.DaruratFragment"
+        android:label="fragment_darurat"
+        tools:layout="@layout/fragment_darurat" />
+    <fragment
+        android:id="@+id/notifDaruratFragment"
+        android:name="com.example.bengkolan.ui.NotifDaruratFragment"
+        android:label="fragment_notif_darurat"
+        tools:layout="@layout/fragment_notif_darurat" />
+    <!--        <action-->
 <!--            android:id="@+id/action_loginFragment_to_menuFragment"-->
 <!--            app:destination="@id/menuFragment" />-->
 <!--    </fragment>-->

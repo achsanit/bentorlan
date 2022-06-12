@@ -9,12 +9,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.bengkolan.MainActivity
 import com.example.bengkolan.R
 import com.example.bengkolan.databinding.FragmentLoginBinding
 import com.example.bengkolan.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class LoginFragment : Fragment() {
@@ -27,8 +30,7 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    )
-            : View {
+    ) : View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -51,9 +53,6 @@ class LoginFragment : Fragment() {
             resetPassword()
         }
     }
-
-
-
 
     fun onBackPressed() {
         Toast.makeText(activity, "Back button disabled", Toast.LENGTH_SHORT)
@@ -110,7 +109,10 @@ class LoginFragment : Fragment() {
     private fun firebaseLogin() {
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener {
-                startActivity(Intent(activity, MainActivity::class.java))
+                val navTo = LoginFragmentDirections.actionLoginFragmentToHomeFragment3()
+                findNavController().navigate(navTo)
+
+                Toast.makeText(activity, "Login Successfully...", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {
                 Toast.makeText(activity, "Login Failed", Toast.LENGTH_SHORT).show()
@@ -121,7 +123,8 @@ class LoginFragment : Fragment() {
         //if user telah login akan ke main activity
         val firebaseUser = firebaseAuth.currentUser
         if (firebaseUser != null){
-            startActivity(Intent(activity, MainActivity::class.java))
+            val navTo = LoginFragmentDirections.actionLoginFragmentToHomeFragment3()
+            findNavController().navigate(navTo)
         }
     }
 }

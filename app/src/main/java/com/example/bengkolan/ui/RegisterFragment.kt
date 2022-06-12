@@ -14,12 +14,16 @@ import com.example.bengkolan.R
 
 import com.example.bengkolan.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding?= null
     private val binding get() = _binding!!
     lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
     private var email = ""
     private var password = ""
     private var username = ""
@@ -39,6 +43,7 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         firebaseAuth = FirebaseAuth.getInstance()
+        db = Firebase.firestore
         binding.btnDaftar.setOnClickListener {
             //validate data
             validateData()
@@ -80,6 +85,15 @@ class RegisterFragment : Fragment() {
     private fun firebaseSignUp() {
         firebaseAuth.createUserWithEmailAndPassword(email, password)
             .addOnSuccessListener {
+                val data = hashMapOf(
+                    "username" to binding.etUsername.text.toString(),
+                    "email" to binding.etEmail.text.toString()
+                )
+
+                db.collection("users")
+                    .document(firebaseAuth.currentUser!!.uid)
+                    .set(data)
+
                 findNavController().navigate(R.id.action_RegisterFragment_to_loginFragment)
             }
             .addOnFailureListener {
