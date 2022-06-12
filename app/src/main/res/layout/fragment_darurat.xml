@@ -1,14 +1,284 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.DaruratFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/daftar"
+        tools:ignore="MissingConstraints" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/darurat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:textColor="@color/Daun"
+        android:layout_marginTop="24sp"
+        tools:ignore="MissingConstraints" />
+    <ImageView
+        android:id="@+id/iv_darurat"
+        android:layout_marginTop="8dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/darurat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"/>
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/motor_anda_mengalami_masalah_apa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_darurat"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/Daun"
+
+        tools:ignore="MissingConstraints" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        tools:ignore="MissingConstraints"
+        android:layout_marginHorizontal="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/desc"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/wrap_noHP"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/Ijo"
+            app:errorEnabled="true"
+
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_noHP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nomor_handphone" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/wrap_alamat"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="-12dp"
+            app:layout_constraintTop_toBottomOf="@id/wrap_noHP"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/Ijo"
+            app:errorEnabled="true"
+
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_alamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/alamat" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <RadioGroup
+            android:id="@+id/tipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-12dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/wrap_alamat">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/jenis_motor"
+                android:layout_marginBottom="8dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/Daun">
+            </TextView>
+            <RadioButton
+                android:id="@+id/matic"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:text="@string/matic"
+                android:textColor="@color/Daun" />
+            <RadioButton
+                android:id="@+id/bebek"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:text="@string/bebek"
+                android:textColor="@color/Daun" />
+
+            <RadioButton
+                android:id="@+id/sport"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:text="@string/sport"
+                android:textColor="@color/Daun" />
+            <RadioButton
+                android:id="@+id/lain"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:text="@string/lainnya"
+                android:textColor="@color/Daun" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/merk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/merk_motor"
+            android:textColor="@color/Daun"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="-12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tipe"
+            app:layout_constraintTop_toBottomOf="@+id/wrap_alamat" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/wrap_merk"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="220dp"
+            android:layout_height="36dp"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/Ijo"
+            app:errorEnabled="true"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tipe"
+            app:layout_constraintTop_toBottomOf="@+id/merk"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_merk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/tv_tipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tipe_motor"
+            android:textColor="@color/Daun"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tipe"
+            app:layout_constraintTop_toBottomOf="@+id/wrap_merk" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/wrap_tipe"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="220dp"
+            android:layout_height="36dp"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/Ijo"
+            app:errorEnabled="true"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tipe"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tipe"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_tipe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tambahan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tambahan"
+            android:layout_marginTop="4dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/Daun"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tipe">
+        </TextView>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/wrap_alam"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/Ijo"
+            app:errorEnabled="true"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tipe"
+            app:layout_constraintTop_toBottomOf="@+id/tambahan"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_nalam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:layout_marginStart="32dp"
+        android:id="@+id/btn_batal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/tanah"
+        android:text="@string/batal"
+        app:layout_constraintEnd_toStartOf="@+id/btn_panggil"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout"
+        tools:ignore="InvalidId" />
+
+    <Button
+        android:id="@+id/btn_panggil"
+        android:layout_marginEnd="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/Daun"
+        android:text="@string/panggil_sekarang"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_batal"
+        app:layout_constraintTop_toBottomOf="@+id/layout"
+        tools:ignore="InvalidId" />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

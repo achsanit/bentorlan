@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.PerbaikanFragment1">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/scrollable"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24sp"
+            android:gravity="center"
+            android:text="Perbaikan Rutin"
+            android:textColor="@color/Daun"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/iv_schedulet"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/schedule"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Kami Siap Memperbaiki Motor Anda"
+            android:textColor="@color/Daun"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_schedulet"
+
+            tools:ignore="MissingConstraints" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/desc"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/wrap_noHP"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/white"
+                app:boxStrokeColor="@color/Ijo"
+                app:errorEnabled="true"
+
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_noHP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/nomor_handphone" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/wrap_alamat"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="-12dp"
+                app:boxBackgroundColor="@color/white"
+                app:boxStrokeColor="@color/Ijo"
+                app:errorEnabled="true"
+                app:layout_constraintTop_toBottomOf="@id/wrap_noHP"
+
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_alamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/alamat" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RadioGroup
+                android:id="@+id/tipe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-12dp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/wrap_alamat">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/jenis_motor"
+                    android:textColor="@color/Daun"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/matic"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:text="@string/matic"
+                    android:textColor="@color/Daun" />
+
+                <RadioButton
+                    android:id="@+id/bebek"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:text="@string/bebek"
+                    android:textColor="@color/Daun" />
+
+                <RadioButton
+                    android:id="@+id/sport"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:text="@string/sport"
+                    android:textColor="@color/Daun" />
+
+                <RadioButton
+                    android:id="@+id/lain"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:text="@string/lainnya"
+                    android:textColor="@color/Daun" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/merk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-12dp"
+                android:text="@string/merk_motor"
+                android:textColor="@color/Daun"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tipe"
+                app:layout_constraintTop_toBottomOf="@+id/wrap_alamat" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/wrap_merk"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="220dp"
+                android:layout_height="36dp"
+                android:layout_marginTop="4dp"
+                app:boxBackgroundColor="@color/white"
+                app:boxStrokeColor="@color/Ijo"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tipe"
+                app:layout_constraintTop_toBottomOf="@+id/merk"
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_merk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/tv_tipe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/tipe_motor"
+                android:textColor="@color/Daun"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tipe"
+                app:layout_constraintTop_toBottomOf="@+id/wrap_merk" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/wrap_tipe"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="220dp"
+                android:layout_height="36dp"
+                android:layout_marginTop="4dp"
+                app:boxBackgroundColor="@color/white"
+                app:boxStrokeColor="@color/Ijo"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tipe"
+                app:layout_constraintTop_toBottomOf="@+id/tv_tipe"
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_tipe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/tv_perbaikan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/apa_yang_mau_diperbaiki"
+                android:textColor="@color/Daun"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/tipe" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/wrap_perbaikan"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                app:boxBackgroundColor="@color/white"
+                app:boxStrokeColor="@color/Ijo"
+                android:layout_marginTop="8dp"
+                app:errorEnabled="true"
+                app:layout_constraintTop_toBottomOf="@+id/tv_perbaikan"
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_perbaikan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/perbaikan" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_calender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/tanggalperbaikan"
+                android:textColor="@color/Daun"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/wrap_perbaikan" />
+            <CalendarView
+                android:layout_marginTop="8dp"
+                android:id="@+id/calender"
+                android:layout_width="340dp"
+                android:layout_height="300dp"
+                android:background="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_calender">
+            </CalendarView>
+            <TextView
+                android:id="@+id/tv_jam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jam Perbaikan"
+                android:layout_marginTop="8dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/Daun"
+                app:layout_constraintTop_toBottomOf="@id/calender"
+                app:layout_constraintStart_toStartOf="parent">
+            </TextView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/wrap_waktu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                app:boxBackgroundColor="@color/white"
+                app:boxStrokeColor="@color/Ijo"
+                android:layout_marginTop="8dp"
+                app:errorEnabled="true"
+                app:layout_constraintTop_toBottomOf="@+id/tv_jam"
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_waktu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/perbaikan" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btn_batal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="42dp"
+            android:layout_marginVertical="16dp"
+            android:backgroundTint="@color/tanah"
+            android:text="@string/batal"
+            app:layout_constraintEnd_toStartOf="@+id/btn_panggil"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout"
+            tools:ignore="InvalidId" />
+
+        <Button
+            android:id="@+id/btn_panggil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="42dp"
+            android:backgroundTint="@color/Daun"
+            android:text="@string/selanjutnya"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btn_batal"
+            app:layout_constraintTop_toBottomOf="@+id/layout"
+            tools:ignore="InvalidId" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
