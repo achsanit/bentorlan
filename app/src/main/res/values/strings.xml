@@ -50,4 +50,6 @@
     <string name="drivebelt_vanbelt">Drivebelt/Vanbelt</string>
     <string name="spark_blug_busi">Spark Blug/Busi</string>
     <string name="kampas_rem">Kampas Rem</string>
+    <string name="jam_perbaikann">Jam Perbaikan</string>
+    <string name="suku_cadang">Suku Cadang</string>
 </resources>

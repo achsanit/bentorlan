@@ -75,16 +75,16 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         firebaseAuth = FirebaseAuth.getInstance()
-        getCurrentLoc()
-
-        binding.btnSignout.setOnClickListener {
-            firebaseAuth.signOut()
-            val action = HomeFragmentDirections.actionHomeFragment3ToLoginFragment()
-            view.findNavController().navigate(action,
-                NavOptions.Builder().setPopUpTo(R.id.homeFragment3, true).build())
-        }
-
-        getUser()
+//        getCurrentLoc()
+//
+//        binding.btnSignout.setOnClickListener {
+//            firebaseAuth.signOut()
+//            val action = HomeFragmentDirections.actionHomeFragment3ToLoginFragment()
+//            view.findNavController().navigate(action,
+//                NavOptions.Builder().setPopUpTo(R.id.homeFragment3, true).build())
+//        }
+//
+//        getUser()
     }
 
     private fun getUser() {

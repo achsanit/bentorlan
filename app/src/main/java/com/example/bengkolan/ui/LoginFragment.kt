@@ -43,9 +43,9 @@ class LoginFragment : Fragment() {
             validateData()
         }
 
-        binding.btnDaftar.setOnClickListener{
-            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-        }
+//        binding.btnDaftar.setOnClickListener{
+//            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+//        }
 
         binding.tvForget.setOnClickListener {
             resetPassword()

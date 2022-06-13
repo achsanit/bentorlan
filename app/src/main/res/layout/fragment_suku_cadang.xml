@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.SukuCadangFrament">
+    tools:context=".ui.SukuCadangFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/scrollable"
@@ -19,7 +19,7 @@
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/daftar"
+            android:background="@drawable/layout"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24sp"
             android:gravity="center"
-            android:text="Suku Cadang"
+            android:text="@string/suku_cadang"
             android:textColor="@color/Daun"
             android:textSize="36sp"
             android:textStyle="bold"
@@ -82,11 +82,11 @@
                 app:boxBackgroundColor="@color/white"
                 app:boxStrokeColor="@color/Ijo"
                 app:errorEnabled="true"
-
                 tools:ignore="MissingConstraints">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_noHP"
+                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/nomor_handphone" />
@@ -98,8 +98,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:layout_marginTop="-12dp"
+                android:layout_marginTop="4dp"
                 app:boxBackgroundColor="@color/white"
                 app:boxStrokeColor="@color/Ijo"
                 app:errorEnabled="true"
@@ -119,9 +118,6 @@
                 android:id="@+id/tipe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="-12dp"
-
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/wrap_alamat">
 
                 <TextView
@@ -136,28 +132,28 @@
                 <RadioButton
                     android:id="@+id/matic"
                     android:layout_width="match_parent"
-                    android:layout_height="24dp"
+                    android:layout_height="40dp"
                     android:text="@string/matic"
                     android:textColor="@color/Daun" />
 
                 <RadioButton
                     android:id="@+id/bebek"
                     android:layout_width="match_parent"
-                    android:layout_height="24dp"
+                    android:layout_height="40dp"
                     android:text="@string/bebek"
                     android:textColor="@color/Daun" />
 
                 <RadioButton
                     android:id="@+id/sport"
                     android:layout_width="match_parent"
-                    android:layout_height="24dp"
+                    android:layout_height="40dp"
                     android:text="@string/sport"
                     android:textColor="@color/Daun" />
 
                 <RadioButton
                     android:id="@+id/lain"
                     android:layout_width="match_parent"
-                    android:layout_height="24dp"
+                    android:layout_height="40dp"
                     android:text="@string/lainnya"
                     android:textColor="@color/Daun" />
             </RadioGroup>
@@ -166,7 +162,6 @@
                 android:id="@+id/merk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="-12dp"
                 android:text="@string/merk_motor"
                 android:textColor="@color/Daun"
                 android:textSize="16sp"
@@ -179,7 +174,7 @@
                 android:id="@+id/wrap_merk"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:layout_width="220dp"
-                android:layout_height="36dp"
+                android:layout_height="76dp"
                 android:layout_marginTop="4dp"
                 app:boxBackgroundColor="@color/white"
                 app:boxStrokeColor="@color/Ijo"
@@ -214,7 +209,7 @@
                 android:id="@+id/wrap_tipe"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:layout_width="220dp"
-                android:layout_height="36dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 app:boxBackgroundColor="@color/white"
                 app:boxStrokeColor="@color/Ijo"
@@ -237,7 +232,7 @@
                 android:id="@+id/tv_calender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:text="@string/suku_cadang_apa_yang_diperlukan"
                 android:textColor="@color/Daun"
                 android:textSize="16sp"
@@ -245,7 +240,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/wrap_tipe" />
             <CheckBox
                 android:layout_marginTop="8dp"
-                android:id="@+id/coolant"
+                android:id="@+id/cb_coolant"
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
                 android:text="@string/coolant_pendingin"
@@ -254,83 +249,83 @@
             </CheckBox>
             <CheckBox
                 android:layout_marginTop="8dp"
-                android:id="@+id/peredam"
+                android:id="@+id/cb_peredam"
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
                 android:text="@string/peredam_kejut"
                 android:layout_marginStart="17dp"
-                app:layout_constraintStart_toEndOf="@id/coolant"
+                app:layout_constraintStart_toEndOf="@id/cb_coolant"
                 app:layout_constraintTop_toBottomOf="@id/tv_calender">
             </CheckBox>
 
             <CheckBox
                 android:layout_marginTop="8dp"
-                android:id="@+id/disc"
+                android:id="@+id/cb_disc"
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
                 android:text="@string/disc_cluct"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/coolant">
+                app:layout_constraintTop_toBottomOf="@id/cb_coolant">
             </CheckBox>
             <CheckBox
                 android:layout_marginTop="8dp"
-                android:id="@+id/aki"
+                android:id="@+id/cb_aki"
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
                 android:text="@string/battery_aki"
                 android:layout_marginStart="70dp"
-                app:layout_constraintStart_toEndOf="@id/disc"
-                app:layout_constraintTop_toBottomOf="@id/peredam">
+                app:layout_constraintStart_toEndOf="@id/cb_disc"
+                app:layout_constraintTop_toBottomOf="@id/cb_peredam">
             </CheckBox>
 
             <CheckBox
                 android:layout_marginTop="8dp"
-                android:id="@+id/piston"
+                android:id="@+id/cb_piston"
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
                 android:text="@string/piston"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/disc">
+                app:layout_constraintTop_toBottomOf="@id/cb_disc">
             </CheckBox>
             <CheckBox
                 android:layout_marginTop="8dp"
-                android:id="@+id/vanbelt"
+                android:id="@+id/cb_vanbelt"
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
                 android:text="@string/drivebelt_vanbelt"
                 android:layout_marginStart="93dp"
-                app:layout_constraintStart_toEndOf="@id/piston"
-                app:layout_constraintTop_toBottomOf="@id/aki">
+                app:layout_constraintStart_toEndOf="@id/cb_piston"
+                app:layout_constraintTop_toBottomOf="@id/cb_aki">
             </CheckBox>
 
             <CheckBox
                 android:layout_marginTop="8dp"
-                android:id="@+id/busi"
+                android:id="@+id/cb_busi"
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
                 android:text="@string/spark_blug_busi"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/piston">
+                app:layout_constraintTop_toBottomOf="@id/cb_piston">
             </CheckBox>
             <CheckBox
                 android:layout_marginTop="8dp"
-                android:id="@+id/kampas"
+                android:id="@+id/cb_kampas"
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
                 android:text="@string/kampas_rem"
                 android:layout_marginStart="32dp"
-                app:layout_constraintStart_toEndOf="@id/busi"
-                app:layout_constraintTop_toBottomOf="@id/vanbelt">
+                app:layout_constraintStart_toEndOf="@id/cb_busi"
+                app:layout_constraintTop_toBottomOf="@id/cb_vanbelt">
             </CheckBox>
             <CheckBox
                 android:layout_marginTop="8dp"
-                android:id="@+id/lainnya"
+                android:id="@+id/cb_lainnya"
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
                 android:text="@string/lainnya"
 
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/busi">
+                app:layout_constraintTop_toBottomOf="@id/cb_busi">
             </CheckBox>
 
             <TextView
@@ -342,7 +337,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/Daun"
-                app:layout_constraintTop_toBottomOf="@id/lainnya"
+                app:layout_constraintTop_toBottomOf="@id/cb_lainnya"
                 app:layout_constraintStart_toStartOf="parent" />
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/wrap_perbaikan"

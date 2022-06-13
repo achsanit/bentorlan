@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 import com.example.bengkolan.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -14,10 +15,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [SukuCadangFrament.newInstance] factory method to
+ * Use the [SuccessFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class SukuCadangFrament : Fragment() {
+class SuccessFragment : DialogFragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -35,7 +36,7 @@ class SukuCadangFrament : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_suku_cadang_frament, container, false)
+        return inflater.inflate(R.layout.fragment_success, container, false)
     }
 
     companion object {
@@ -45,12 +46,12 @@ class SukuCadangFrament : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment SukuCadangFrament.
+         * @return A new instance of fragment SuccessFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            SukuCadangFrament().apply {
+            SuccessFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

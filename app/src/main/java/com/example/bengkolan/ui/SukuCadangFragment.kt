@@ -1,40 +1,32 @@
 package com.example.bengkolan.ui
 
-import android.app.DatePickerDialog
-import android.app.TimePickerDialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioGroup
 import android.widget.Toast
-import com.example.bengkolan.R
-import com.example.bengkolan.databinding.FragmentDaruratBinding
-import com.example.bengkolan.databinding.FragmentPerbaikanBinding
+import androidx.fragment.app.Fragment
+import com.example.bengkolan.databinding.FragmentSukuCadangBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.collections.HashMap
 
-
-class PerbaikanFragment : Fragment() {
-    private var _binding: FragmentPerbaikanBinding?= null
+class SukuCadangFragment : Fragment() {
+    private var _binding: FragmentSukuCadangBinding?= null
     private val binding get() = _binding!!
     lateinit var firebaseAuth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
-    private var cal = Calendar.getInstance()
     var result = ""
+    var check = ""
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentPerbaikanBinding.inflate(inflater, container, false)
+        _binding = FragmentSukuCadangBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -47,12 +39,6 @@ class PerbaikanFragment : Fragment() {
 
     private fun checkdata(){
         val rg_tipe = binding.tipe as RadioGroup
-        binding.tvTanggal.setOnClickListener{
-            datePickerDialog()
-        }
-        binding.tvWaktu.setOnClickListener{
-            timePickerDialog()
-        }
 
         binding.btnPanggil.setOnClickListener {
             if(rg_tipe.checkedRadioButtonId != -1){
@@ -67,6 +53,29 @@ class PerbaikanFragment : Fragment() {
             }else{
                 result = ""
             }
+
+            if(binding.cbCoolant.isChecked){
+                check += "Coolant"}
+            else if(binding.cbPeredam.isChecked){
+                check += "Peredam"}
+            else if(binding.cbDisc.isChecked){
+                check += "Disc"}
+            else if(binding.cbAki.isChecked){
+                check += "Aki"}
+            else if(binding.cbPiston.isChecked){
+                check += "Piston"}
+            else if(binding.cbVanbelt.isChecked){
+                check += "Vanbelt"}
+            else if(binding.cbBusi.isChecked){
+                check += "Busi"}
+            else if(binding.cbLainnya.isChecked){
+                check += "Lainnya"}
+            else{
+                false
+            }
+
+
+
             if (binding.etNoHP.text.toString().isEmpty()||binding.etAlamat.text.toString().isEmpty()||result == ""
                 ||binding.etMerk.text.toString().isEmpty()||binding.etTipe.text.toString().isEmpty()){
                 if (binding.etNoHP.text.toString().isEmpty()){
@@ -92,24 +101,15 @@ class PerbaikanFragment : Fragment() {
                     binding.wrapMerk.error = null
                 }
                 if (binding.etTipe.text.toString().isEmpty()){
-                    binding.wrapTipe.error = "Masukan Merk Motor Anda"
-                } else{
-                    binding.wrapTipe.error = null
+                    binding.wrapTipe?.error = "Masukan Merk Motor Anda"
                 }
-                if (binding.etPerbaikan.text.toString().isEmpty()){
-                    binding.wrapPerbaikan?.error = "Masukan Perbaikan ANda"
-                } else{
-                    binding.wrapPerbaikan?.error = null
+                else{
+                    binding.wrapTipe?.error = null
                 }
-                if(binding.tvTanggal.text.toString() == "") {
-                    Toast.makeText(activity, "Masukan Tanggal Perbaikan", Toast.LENGTH_SHORT).show()
-                }else {
-                    result = true.toString()
-                }
-                if(binding.tvWaktu.text.toString() == "") {
-                    Toast.makeText(activity, "Masukan Waaktu Perbaikan", Toast.LENGTH_SHORT).show()
-                }else {
-                    result = true.toString()
+                if(check == "null"){
+                    Toast.makeText(activity, "Masukan Suku Cadang", Toast.LENGTH_SHORT).show()
+                }else{
+                    check = ""
                 }
 
             }
@@ -117,8 +117,7 @@ class PerbaikanFragment : Fragment() {
                 binding.wrapMerk.error = null
                 binding.wrapAlamat.error = null
                 binding.wrapNoHP.error = null
-                binding.wrapTipe.error = null
-                binding.wrapPerbaikan.error = null
+                binding.wrapTipe?.error = null
                 sendData()
             }
 
@@ -130,22 +129,21 @@ class PerbaikanFragment : Fragment() {
         val jenis = result
         val merk = binding.wrapMerk.editText?.text.toString().trim()
         val tipe = binding.wrapTipe.editText?.text.toString().trim()
-        val perbaikan = binding.wrapPerbaikan.editText?.text.toString().trim()
-        val tanggal = binding.tvTanggal.text.toString().trim()
-        val jam = binding.tvWaktu.text.toString().trim()
+        val lain = binding.wrapPerbaikan.editText?.text.toString().trim()
+        val sukuCadang = check
 
         val db = FirebaseFirestore.getInstance()
         val darurat: MutableMap<String, Any> = HashMap()
+
         darurat["noHP"] = noHp
         darurat["Alamat"] = alamat
         darurat["Jenis"] = jenis
         darurat["Merk"] = merk
         darurat["Tipe"] = tipe
-        darurat["Perbaikan"] = perbaikan
-        darurat["Tanggal"] = tanggal
-        darurat["Jam"] = jam
+        darurat["Lain"] = lain
+        darurat["SukuCadang"] = sukuCadang
 
-        db.collection("perbaikan rutin").document()
+        db.collection("Suku Cadang").document()
             .set(darurat)
             .addOnSuccessListener {
                 Toast.makeText(activity, "record added succesfully", Toast.LENGTH_SHORT).show()
@@ -153,25 +151,5 @@ class PerbaikanFragment : Fragment() {
             .addOnFailureListener{
                 Toast.makeText(activity, "record Failed to add", Toast.LENGTH_SHORT).show()
             }
-    }
-
-    private fun datePickerDialog() {
-        val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
-            cal.set(Calendar.YEAR, year)
-            cal.set(Calendar.MONTH, monthOfYear)
-            cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-            binding.tvTanggal.text = SimpleDateFormat("dd/MM/yyyy", Locale.US).format(cal.time).toString()
-        }
-        DatePickerDialog(requireContext(), dateSetListener, cal.get(Calendar.YEAR), cal.get(
-            Calendar.MONTH), cal.get(Calendar.MONTH)).show()
-    }
-    private fun timePickerDialog() {
-        val timeSetListener = TimePickerDialog.OnTimeSetListener { _, hour, minute ->
-            cal.set(Calendar.HOUR_OF_DAY, hour)
-            cal.set(Calendar.MINUTE, minute)
-            binding.tvWaktu.text = SimpleDateFormat("HH.mm", Locale.US).format(cal.time).toString()
-        }
-        TimePickerDialog(requireContext(), timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(
-            Calendar.MINUTE), true).show()
     }
 }

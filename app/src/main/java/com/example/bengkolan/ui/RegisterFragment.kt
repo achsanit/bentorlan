@@ -52,32 +52,58 @@ class RegisterFragment : Fragment() {
 
 
     private fun validateData() {
-        username = binding.wrapPassword.editText?.text.toString().trim()
-        email = binding.wrapEmail.editText?.text.toString().trim()
-        password = binding.wrapPassword.editText?.text.toString().trim()
-        confirmpass = binding.wrapConfirmPassword.editText?.text.toString().trim()
+        username = binding.etUsername.text.toString().trim()
+        email = binding.etEmail.text.toString().trim()
+        password = binding.etPassword.text.toString().trim()
+        confirmpass = binding.etConfirmPassword.text.toString().trim()
 
-        if (TextUtils.isEmpty(username)){
-            binding.wrapUsername.error = "Please enter your username"
-        }
-        else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            //cek fromat email
-            binding.wrapEmail.error = "Invalid email format"
-        }
-        else if (TextUtils.isEmpty(password)){
-            //password kosong
-            binding.wrapPassword.error = "Please enter your password"
-        }
-        else if (TextUtils.isEmpty(confirmpass)){
-            //password kosong
-            binding.wrapConfirmPassword.error = "Please enter your confirm password"
-        }
-        else if (password.length < 6){
-            binding.wrapPassword.error = "Password must atleast 6 character long"
-        }
-        else if (binding.etPassword.text.toString() != binding.etConfirmPassword.text.toString())
-            Toast.makeText(activity, "your password does not match", Toast.LENGTH_SHORT).show()
-        else{
+        if (TextUtils.isEmpty(username) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()
+            ||(TextUtils.isEmpty(password)|| TextUtils.isEmpty(confirmpass))||password.length < 6||
+                    binding.etPassword.text.toString() != binding.etConfirmPassword.text.toString()){
+            if (TextUtils.isEmpty(username)){
+                binding.wrapUsername.error = "Masukan Username Anda"
+            } else{
+                binding.wrapUsername.error = null
+            }
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                //cek fromat email
+                binding.wrapEmail.error = "Format Email Tidak Valid"
+            } else{
+                //cek fromat email
+                binding.wrapEmail.error = null
+            }
+            if (TextUtils.isEmpty(password)){
+                //password kosong
+                binding.wrapPassword.error = "Masukan Password Anda"
+            } else {
+                //password kosong
+                binding.wrapPassword.error = null
+            }
+            if (TextUtils.isEmpty(confirmpass)){
+                //password kosong
+                binding.wrapConfirmPassword.error = "Masukan Konfirmasi Password Anda"
+            } else {
+                //password kosong
+                binding.wrapConfirmPassword.error = null
+            }
+            if (password.length < 6){
+                binding.wrapPassword.error = "Password Harus Sepanjang 6 Character"
+            }else{
+                binding.wrapPassword.error = null
+            }
+            if (binding.etPassword.text.toString() != binding.etConfirmPassword.text.toString()) {
+                binding.wrapPassword.error = "Password Tidak Sama"
+                binding.wrapConfirmPassword.error = "Password Tidak Sama"
+            }else{
+                binding.wrapPassword.error = null
+                binding.wrapConfirmPassword.error = null
+            }
+
+        }else{
+            binding.wrapUsername.error = null
+            binding.wrapEmail.error = null
+            binding.wrapPassword.error = null
+            binding.wrapConfirmPassword.error = null
             firebaseSignUp()
         }
     }
@@ -94,7 +120,7 @@ class RegisterFragment : Fragment() {
                     .document(firebaseAuth.currentUser!!.uid)
                     .set(data)
 
-                findNavController().navigate(R.id.action_RegisterFragment_to_loginFragment)
+//                findNavController().navigate(R.id.action_RegisterFragment_to_loginFragment)
             }
             .addOnFailureListener {
                 Toast.makeText(activity, "Sign Up Failed", Toast.LENGTH_SHORT).show()
