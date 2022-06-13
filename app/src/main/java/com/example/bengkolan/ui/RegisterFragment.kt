@@ -94,7 +94,7 @@ class RegisterFragment : Fragment() {
                     .document(firebaseAuth.currentUser!!.uid)
                     .set(data)
 
-                findNavController().navigate(R.id.action_RegisterFragment_to_loginFragment)
+                findNavController().navigateUp()
             }
             .addOnFailureListener {
                 Toast.makeText(activity, "Sign Up Failed", Toast.LENGTH_SHORT).show()

@@ -1,14 +1,414 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="none"
     tools:context=".ui.UserProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/backdrop_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/backdrop_image">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ivProfilePicture"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:background="@drawable/default_profile" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/select_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/Daun"
+            app:cardCornerRadius="200dp"
+            app:layout_constraintBottom_toBottomOf="@+id/cardView4"
+            app:layout_constraintEnd_toEndOf="@+id/cardView4">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/image_select"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/transparent"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_outline_camera_alt_24"
+                    android:textAlignment="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/white" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageView
+            android:id="@+id/backdrop_image"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/backdrop_color_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/imageView4"
+            app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/logout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:alpha="0.3"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView4">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/transparent"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_outline_camera_alt_24"
+                    android:textAlignment="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/white" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:alpha="5"
+            android:layout_marginStart="2dp"
+            android:src="@drawable/logout_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/logout"
+            app:layout_constraintEnd_toEndOf="@+id/logout"
+            app:layout_constraintStart_toStartOf="@+id/logout"
+            app:layout_constraintTop_toTopOf="@+id/logout"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_profile_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Your Username"
+            android:textColor="@color/Daun"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/imageView4"
+            app:layout_constraintStart_toStartOf="@+id/imageView4"
+            app:layout_constraintTop_toBottomOf="@+id/cardView4" />
+
+        <TextView
+            android:id="@+id/tv_profile_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="uremail@gmail.com"
+            android:textColor="@color/Grey"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_profile_username"
+            app:layout_constraintStart_toStartOf="@+id/tv_profile_username"
+            app:layout_constraintTop_toBottomOf="@+id/tv_profile_username" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_profile_email">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/regis"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/location_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/wrap_address"
+                    app:layout_constraintStart_toStartOf="@+id/imageView15"
+                    app:layout_constraintTop_toTopOf="@+id/wrap_address"
+                    app:layout_constraintVertical_bias="0.5" />
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tvProfileAddress"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="16dp"-->
+<!--                    android:layout_marginEnd="32dp"-->
+<!--                    android:text="Jalan giri rejo RT. 27, RW. 02, Kampung Semarang mandiri"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@+id/imageView12"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toEndOf="@+id/imageView12"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/imageView12" />-->
+
+                <ImageView
+                    android:id="@+id/imageView13"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/phone_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/wrap_phone"
+                    app:layout_constraintStart_toStartOf="@+id/imageView12"
+                    app:layout_constraintTop_toTopOf="@+id/wrap_phone" />
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tvProfilePhone"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="081258900173"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@+id/imageView13"-->
+<!--                    app:layout_constraintStart_toStartOf="@+id/tvProfileAddress"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/imageView13" />-->
+
+
+                <ImageView
+                    android:id="@+id/imageView14"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/instagram_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/wrap_instagram"
+                    app:layout_constraintStart_toStartOf="@+id/imageView13"
+                    app:layout_constraintTop_toTopOf="@+id/wrap_instagram" />
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tvProfileInstagram"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="instagram"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@+id/imageView14"-->
+<!--                    app:layout_constraintStart_toStartOf="@+id/tvProfilePhone"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/imageView14" />-->
+
+                <ImageView
+                    android:id="@+id/imageView15"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="24dp"
+                    android:src="@drawable/profile_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/wrap_fullname"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/wrap_fullname" />
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tvProfileFullname"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Fullname"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@+id/imageView15"-->
+<!--                    app:layout_constraintStart_toStartOf="@+id/tvProfileAddress"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/imageView15" />-->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/wrap_address"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_marginTop="8dp"
+                    app:boxStrokeColor="@color/Daun"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView12"
+                    app:layout_constraintTop_toBottomOf="@+id/wrap_fullname"
+                    tools:ignore="MissingConstraints">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="address"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/wrap_fullname"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_marginTop="24dp"
+                    app:boxStrokeColor="@color/Daun"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/imageView15"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFullname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="fullname"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/wrap_phone"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_marginTop="8dp"
+                    app:boxStrokeColor="@color/Daun"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView13"
+                    app:layout_constraintTop_toBottomOf="@+id/wrap_address"
+                    tools:ignore="MissingConstraints">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Phone"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/wrap_instagram"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="24dp"
+                    app:boxStrokeColor="@color/Daun"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView14"
+                    app:layout_constraintTop_toBottomOf="@+id/wrap_phone"
+                    tools:ignore="MissingConstraints">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etInstagram"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Instagram"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+<!--                <ImageButton-->
+<!--                    android:id="@+id/btnEdit"-->
+<!--                    android:layout_width="42dp"-->
+<!--                    android:layout_height="42dp"-->
+<!--                    android:layout_marginTop="4dp"-->
+<!--                    android:layout_marginEnd="4dp"-->
+<!--                    android:backgroundTint="@color/transparent"-->
+<!--                    android:scaleType="centerInside"-->
+<!--                    android:src="@drawable/writing_icon"-->
+<!--                    app:layout_constraintEnd_toEndOf="@+id/imageView10"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/imageView10"-->
+<!--                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />-->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/Daun"
+            android:text="save changes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView5" />
+
+<!--        <Button-->
+<!--            android:id="@+id/btnLogout"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="32dp"-->
+<!--            android:backgroundTint="@color/Daun"-->
+<!--            android:text="LOGOUT"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/btnSave"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/btnSave" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</ScrollView>

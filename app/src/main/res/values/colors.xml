@@ -10,7 +10,9 @@
     <color name="biru">#03A9F4</color>
     <color name="pink">#CE3E86</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="background">#EDEDED</color>
     <color name="Grey">#171719</color>
+    <color name="gray">#FDFDFD</color>
     <color name="Ijo">#5FC63A</color>
     <color name="tanah">#926E00</color>
     <color name="Daun">#388F3C</color>
