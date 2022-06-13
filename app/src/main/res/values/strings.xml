@@ -52,4 +52,5 @@
     <string name="kampas_rem">Kampas Rem</string>
     <string name="jam_perbaikann">Jam Perbaikan</string>
     <string name="suku_cadang">Suku Cadang</string>
+    <string name="sign_in_with_google">Sign In with Google</string>
 </resources>

@@ -135,6 +135,26 @@
             app:layout_constraintTop_toBottomOf="@id/btn_daftar"
             tools:ignore="MissingConstraints" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_masuk_google"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="32dp"
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:textAllCaps="false"
+            android:textColor="@color/Ijo"
+            android:textSize="18sp"
+            app:drawableEndCompat="@drawable/google_24"
+            android:text="@string/sign_in_with_google"
+            app:layout_constraintEnd_toEndOf="@+id/btn_masuk"
+            app:layout_constraintStart_toStartOf="@+id/btn_masuk"
+            app:layout_constraintTop_toBottomOf="@+id/btn_masuk"
+            app:strokeColor="@color/Ijo"
+            app:strokeWidth="2dp"
+            tools:ignore="MissingConstraints" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

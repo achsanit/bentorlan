@@ -3,29 +3,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_login_page"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/navigation_home">
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/navigation_home"
         android:name="com.example.bengkolan.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_daruratFragment"
-            app:destination="@id/daruratFragment" />
+            app:destination="@id/navigation_darurat" />
         <action
             android:id="@+id/action_homeFragment_to_userProfileFragment"
-            app:destination="@id/userProfileFragment" />
+            app:destination="@id/navigation_profile" />
+        <action
+            android:id="@+id/action_homeFragment_to_sukuCadangFragment"
+            app:destination="@id/navigation_sukucadang" />
+        <action
+            android:id="@+id/action_homeFragment_to_perbaikanFragment"
+            app:destination="@id/navigation_perbaikan" />
     </fragment>
     <fragment
-        android:id="@+id/daruratFragment"
+        android:id="@+id/navigation_darurat"
         android:name="com.example.bengkolan.ui.DaruratFragment"
         android:label="fragment_darurat"
         tools:layout="@layout/fragment_darurat" />
     <fragment
-        android:id="@+id/userProfileFragment"
+        android:id="@+id/navigation_profile"
         android:name="com.example.bengkolan.ui.UserProfileFragment"
         android:label="fragment_user_profile"
         tools:layout="@layout/fragment_user_profile" />
+    <fragment
+        android:id="@+id/navigation_perbaikan"
+        android:name="com.example.bengkolan.ui.PerbaikanFragment"
+        android:label="fragment_perbaikan"
+        tools:layout="@layout/fragment_perbaikan" />
+    <fragment
+        android:id="@+id/navigation_sukucadang"
+        android:name="com.example.bengkolan.ui.SukuCadangFragment"
+        android:label="fragment_suku_cadang"
+        tools:layout="@layout/fragment_suku_cadang" />
     <!--        <action-->
 <!--            android:id="@+id/action_loginFragment_to_menuFragment"-->
 <!--            app:destination="@id/menuFragment" />-->

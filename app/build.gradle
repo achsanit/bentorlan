@@ -72,6 +72,10 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.13.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
 
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.1.1'
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1'
+
     //firebase
     implementation 'com.google.firebase:firebase-auth:21.0.3'
     implementation 'com.google.firebase:firebase-analytics-ktx:20.1.2'
@@ -85,6 +89,6 @@ dependencies {
     //access location
     implementation 'com.google.android.gms:play-services-location:20.0.0'
 
-
+    implementation 'com.google.android.gms:play-services-auth:18.0.0'
 
 }
