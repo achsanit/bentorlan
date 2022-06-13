@@ -36,24 +36,21 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         firebaseAuth = FirebaseAuth.getInstance()
-        checkUser()
 
         binding.btnMasuk.setOnClickListener {
             //sebelum login di validasi dlu datanya
+            binding.progressLogin.visibility = View.VISIBLE
             validateData()
         }
 
-//        binding.btnDaftar.setOnClickListener{
-//            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-//        }
+        binding.btnDaftar.setOnClickListener{
+            findNavController().navigate(R.id.action_loginFragment2_to_registerFragment)
+        }
 
         binding.tvForget.setOnClickListener {
             resetPassword()
         }
     }
-
-
-
 
     fun onBackPressed() {
         Toast.makeText(activity, "Back button disabled", Toast.LENGTH_SHORT)
@@ -110,18 +107,13 @@ class LoginFragment : Fragment() {
     private fun firebaseLogin() {
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener {
+                binding.progressLogin.visibility = View.GONE
                 startActivity(Intent(activity, MainActivity::class.java))
+                activity?.finish()
             }
             .addOnFailureListener {
+                binding.progressLogin.visibility = View.GONE
                 Toast.makeText(activity, "Login Failed", Toast.LENGTH_SHORT).show()
             }
-    }
-
-    private fun checkUser(){
-        //if user telah login akan ke main activity
-        val firebaseUser = firebaseAuth.currentUser
-//        if (firebaseUser != null){
-//            startActivity(Intent(activity, MainActivity::class.java))
-//        }
     }
 }

@@ -33,14 +33,11 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding?= null
@@ -74,17 +71,20 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        BottomSheetBehavior.from(binding.bottomSheet).apply {
+            peekHeight=450
+            this.state = BottomSheetBehavior.STATE_COLLAPSED
+        }
+
         firebaseAuth = FirebaseAuth.getInstance()
-//        getCurrentLoc()
-//
-//        binding.btnSignout.setOnClickListener {
-//            firebaseAuth.signOut()
-//            val action = HomeFragmentDirections.actionHomeFragment3ToLoginFragment()
-//            view.findNavController().navigate(action,
-//                NavOptions.Builder().setPopUpTo(R.id.homeFragment3, true).build())
-//        }
-//
-//        getUser()
+        getCurrentLoc()
+
+        binding.cardDarurat.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToUserProfileFragment()
+            view.findNavController().navigate(action)
+        }
+
+        getUser()
     }
 
     private fun getUser() {

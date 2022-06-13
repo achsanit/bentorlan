@@ -52,10 +52,10 @@ class RegisterFragment : Fragment() {
 
 
     private fun validateData() {
-        username = binding.etUsername.text.toString().trim()
-        email = binding.etEmail.text.toString().trim()
-        password = binding.etPassword.text.toString().trim()
-        confirmpass = binding.etConfirmPassword.text.toString().trim()
+        username = binding.wrapPassword.editText?.text.toString().trim()
+        email = binding.wrapEmail.editText?.text.toString().trim()
+        password = binding.wrapPassword.editText?.text.toString().trim()
+        confirmpass = binding.wrapConfirmPassword.editText?.text.toString().trim()
 
         if (TextUtils.isEmpty(username) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()
             ||(TextUtils.isEmpty(password)|| TextUtils.isEmpty(confirmpass))||password.length < 6||
@@ -120,7 +120,7 @@ class RegisterFragment : Fragment() {
                     .document(firebaseAuth.currentUser!!.uid)
                     .set(data)
 
-//                findNavController().navigate(R.id.action_RegisterFragment_to_loginFragment)
+                findNavController().navigateUp()
             }
             .addOnFailureListener {
                 Toast.makeText(activity, "Sign Up Failed", Toast.LENGTH_SHORT).show()
