@@ -5,17 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.example.bengkolan.R
-import com.example.bengkolan.databinding.FragmentPerbaikanBinding
 import com.example.bengkolan.databinding.FragmentSuccessBinding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 
-
-class SuccessFragment : Fragment() {
+class FailedFragment : Fragment() {
     private var _binding: FragmentSuccessBinding?= null
     private val binding get() = _binding!!
 
@@ -31,7 +25,7 @@ class SuccessFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnMenu.setOnClickListener {
-            findNavController().navigate(R.id.action_successFragment_to_navigation_home)
+            findNavController().navigate(R.id.action_failedFragment_to_navigation_home)
         }
     }
 

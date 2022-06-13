@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.bengkolan.R
 import com.example.bengkolan.databinding.FragmentSukuCadangBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -147,9 +149,11 @@ class SukuCadangFragment : Fragment() {
             .set(darurat)
             .addOnSuccessListener {
                 Toast.makeText(activity, "record added succesfully", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_navigation_sukucadang_to_successFragment)
             }
             .addOnFailureListener{
                 Toast.makeText(activity, "record Failed to add", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_navigation_sukucadang_to_failedFragment)
             }
     }
 }

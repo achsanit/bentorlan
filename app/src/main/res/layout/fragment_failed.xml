@@ -6,20 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/aby"
-    tools:context=".ui.SuccessFragment">
+    tools:context=".ui.FailedFragment">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Operasi Berhasil"
+        android:text="Operasi Gagal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:gravity="center"
         android:textSize="36sp"
         android:textStyle="bold"
-        android:textColor="@color/Daun"
+        android:textColor="@color/merah"
         android:layout_marginTop="36sp"
         tools:ignore="MissingConstraints" />
 
@@ -28,34 +28,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Silahkan Menunggu Agent Kami"
+        android:text="Silahkan Ulang Kembali"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title"
         android:gravity="center"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="@color/Daun"
+        android:textColor="@color/merah"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/iv_succes"
         android:layout_marginTop="8dp"
-        android:layout_width="420dp"
-        android:layout_height="420dp"
-        android:background="@drawable/succes"
+        android:layout_width="580dp"
+        android:layout_height="580dp"
+        android:background="@drawable/gagal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
 
+
     <Button
         android:id="@+id/btn_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/Daun"
+        android:layout_marginTop="-64dp"
+        android:backgroundTint="@color/merah"
         android:text="Menu Utama"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

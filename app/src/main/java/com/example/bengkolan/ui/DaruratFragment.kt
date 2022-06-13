@@ -120,9 +120,11 @@ class DaruratFragment : Fragment() {
             .set(darurat)
             .addOnSuccessListener {
                 Toast.makeText(activity, "record added succesfully", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_navigation_darurat_to_successFragment)
             }
             .addOnFailureListener{
                 Toast.makeText(activity, "record Failed to add", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_navigation_darurat_to_failedFragment)
             }
     }
 }
