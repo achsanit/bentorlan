@@ -80,11 +80,21 @@ class HomeFragment : Fragment() {
         getCurrentLoc()
 
         binding.cardDarurat.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToUserProfileFragment()
+            val action = HomeFragmentDirections.actionHomeFragmentToPerbaikanFragment()
             view.findNavController().navigate(action)
         }
 
         getUser()
+
+        binding.cardView.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToDaruratFragment()
+            findNavController().navigate(action)
+        }
+
+        binding.cardSukucadang.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToSukuCadangFragment()
+            findNavController().navigate(action)
+        }
     }
 
     private fun getUser() {

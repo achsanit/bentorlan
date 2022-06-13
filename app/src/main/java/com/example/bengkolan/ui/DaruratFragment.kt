@@ -1,5 +1,9 @@
 package com.example.bengkolan.ui
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.pm.PackageManager
+import android.location.Geocoder
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -8,23 +12,33 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioGroup
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.bengkolan.R
 import com.example.bengkolan.databinding.FragmentDaruratBinding
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.util.*
+import kotlin.collections.HashMap
 
 
 class DaruratFragment : Fragment() {
     private var _binding: FragmentDaruratBinding?= null
     private val binding get() = _binding!!
     lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var currentLoc: LatLng
+    private lateinit var geocoder: Geocoder
     private lateinit var db: FirebaseFirestore
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
     var result = ""
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +53,13 @@ class DaruratFragment : Fragment() {
         firebaseAuth = FirebaseAuth.getInstance()
         db = Firebase.firestore
         checkdata()
+
+        getCurrentLoc()
+
+        binding.btnBatal.setOnClickListener {
+            view.findNavController().navigateUp()
+        }
+
     }
 
     private fun checkdata(){
@@ -126,5 +147,55 @@ class DaruratFragment : Fragment() {
                 Toast.makeText(activity, "record Failed to add", Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_navigation_darurat_to_failedFragment)
             }
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun getCurrentLoc() {
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
+
+        if (ActivityCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(requireActivity(),
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION), 101)
+
+            return
+        }
+        fusedLocationClient.lastLocation
+            .addOnSuccessListener { location ->
+                // getting the last known or current location
+                if (location != null) {
+                    currentLoc = LatLng(location.latitude,location.longitude)
+
+                }
+            }
+            .addOnFailureListener {
+                Toast.makeText(requireContext(), "Failed on getting current location",
+                    Toast.LENGTH_SHORT).show()
+            }
+    }
+    override fun onRequestPermissionsResult(
+        requestCode: Int, permissions: Array<out String>, grantResults: IntArray
+    ) {
+        when (requestCode) {
+            101 -> {
+                if (grantResults.isNotEmpty() &&
+                    grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // permission granted
+
+                    getCurrentLoc()
+                } else {
+                    // permission denied
+                    Toast.makeText(requireContext(), "You need to grant permission to access location",
+                        Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 }

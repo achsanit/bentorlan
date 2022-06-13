@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bengkolan">
         <activity
+            android:name=".AuthActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
 
@@ -33,8 +36,8 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
-        <activity
-            android:name=".AuthActivity"
+
+        <activity android:name=".AuthActivity"
             android:exported="false"/>
         <activity
             android:name=".SplashScreen"
